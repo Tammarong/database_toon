@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('responsive-login-form'));
-app.use('/todo-list', express.static('todo-list'));
+app.use(express.static('login-form'));
+app.use('/todo-list', express.static('todolist'));
 
 // PostgreSQL Connection
 const pool = new Pool({
@@ -78,11 +78,11 @@ pool.query(createRegistrationInfoQuery, (err, result) => {
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'responsive-login-form', 'index.html'));
+    res.sendFile(path.join(__dirname, 'login-form', 'index.html'));
 });
 
 app.get('/todo-list', (req, res) => {
-    res.sendFile(path.join(__dirname, 'todo-list', 'index.html'));
+    res.sendFile(path.join(__dirname, 'todolist', 'index.html'));
 });
 
 // Register endpoint

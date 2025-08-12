@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Login & Register Form</title>  
+    </head>
+    <body>
+        <!-- Theme Selectors -->
+        <div class="theme-container">
+            <div class="standard-theme theme-selector" onclick="changeTheme('standard')"></div>
+            <div class="light-theme theme-selector" onclick="changeTheme('light')"></div>
+            <div class="darker-theme theme-selector" onclick="changeTheme('darker')"></div>
+        </div>
+        
+        <div class="l-form">
+            <div class="shape1"></div>
+            <div class="shape2"></div>
+
+            <!-- Login Form -->
+            <div class="form" id="loginForm">
+                <img src="assets/img/authentication.svg" alt="" class="form__img">
+
+                <form action="" class="form__content">
+                    <h1 class="form__title">Welcome Back</h1>
+
+                    <div class="form__div form__div-one">
+                        <div class="form__icon">
+                            <i class='bx bx-user-circle'></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="loginUsername" class="form__label">Username</label>
+                            <input type="text" class="form__input" id="loginUsername">
+                        </div>
+                    </div>
+
+                    <div class="form__div">
+                        <div class="form__icon">
+                            <i class='bx bx-lock' ></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="loginPassword" class="form__label">Password</label>
+                            <input type="password" class="form__input" id="loginPassword">
+                        </div>
+                    </div>
+                    <a href="#" class="form__forgot">Forgot Password?</a>
+
+                    <input type="submit" class="form__button" value="Login">
+
+                    <div class="form__social">
+                        <span class="form__social-text">Or login with</span>
+
+                        <a href="#" class="form__social-icon"><i class='bx bxl-facebook' ></i></a>
+                        <a href="#" class="form__social-icon"><i class='bx bxl-google' ></i></a>
+                        <a href="#" class="form__social-icon"><i class='bx bxl-instagram' ></i></a>
+                    </div>
+
+                    <div class="form__toggle">
+                        <span class="form__toggle-text">Don't have an account?</span>
+                        <a href="#" class="form__toggle-link" onclick="toggleForm('register')">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div class="form" id="registerForm" style="display: none;">
+                <img src="assets/img/authentication.svg" alt="" class="form__img">
+
+                <form action="" class="form__content">
+                    <h1 class="form__title">Create Account</h1>
+
+                    <div class="form__div form__div-one">
+                        <div class="form__icon">
+                            <i class='bx bx-user'></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="registerFullName" class="form__label">Full Name</label>
+                            <input type="text" class="form__input" id="registerFullName">
+                        </div>
+                    </div>
+
+                    <div class="form__div">
+                        <div class="form__icon">
+                            <i class='bx bx-envelope'></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="registerEmail" class="form__label">Email</label>
+                            <input type="email" class="form__input" id="registerEmail">
+                        </div>
+                    </div>
+
+                    <div class="form__div">
+                        <div class="form__icon">
+                            <i class='bx bx-user-circle'></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="registerUsername" class="form__label">Username</label>
+                            <input type="text" class="form__input" id="registerUsername">
+                        </div>
+                    </div>
+
+                    <div class="form__div">
+                        <div class="form__icon">
+                            <i class='bx bx-lock' ></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="registerPassword" class="form__label">Password</label>
+                            <input type="password" class="form__input" id="registerPassword">
+                        </div>
+                    </div>
+
+                    <div class="form__div">
+                        <div class="form__icon">
+                            <i class='bx bx-lock-alt' ></i>
+                        </div>
+
+                        <div class="form__div-input">
+                            <label for="registerConfirmPassword" class="form__label">Confirm Password</label>
+                            <input type="password" class="form__input" id="registerConfirmPassword">
+                        </div>
+                    </div>
+
+                    <input type="submit" class="form__button" value="Register">
+
+                    <div class="form__social">
+                        <span class="form__social-text">Or register with</span>
+
+                        <a href="#" class="form__social-icon"><i class='bx bxl-facebook' ></i></a>
+                        <a href="#" class="form__social-icon"><i class='bx bxl-google' ></i></a>
+                        <a href="#" class="form__social-icon"><i class='bx bxl-instagram' ></i></a>
+                    </div>
+
+                    <div class="form__toggle">
+                        <span class="form__toggle-text">Already have an account?</span>
+                        <a href="#" class="form__toggle-link" onclick="toggleForm('login')">Sign In</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Success Window Modal -->
+        <div id="successModal" class="success-modal">
+            <div class="success-content">
+                <div class="success-header">
+                    <div class="success-icon">
+                        <i class='bx bx-check-circle'></i>
+                    </div>
+                    <h2 class="success-title">Login Successful!</h2>
+                </div>
+                <div class="success-body">
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <i class='bx bx-user'></i>
+                        </div>
+                        <div class="user-details">
+                            <h3 id="userName">Welcome!</h3>
+                            <p id="userEmail">user@example.com</p>
+                            <p id="userUsername">@username</p>
+                        </div>
+                    </div>
+                    <div class="success-message">
+                        <p>You have successfully logged into your account.</p>
+                    </div>
+                </div>
+                <div class="success-footer">
+                    <button class="success-btn" onclick="closeSuccessModal()">Continue</button>
+                    <button class="success-btn secondary" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===== MAIN JS ===== -->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
